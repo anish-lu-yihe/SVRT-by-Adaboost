@@ -14,4 +14,4 @@ The original code for the SVRT generator can be found [here](https://www.idiap.c
 
 ### Branches
 - [master](https://github.com/anish-lu-yihe/SVRT-by-RN):
-Currently this branch contains the example for Adaboost provided by [scikit-learn](https://scikit-learn.org/dev/modules/ensemble.html#adaboost).
+Currently this branch contains the [Adaboost example]((https://scikit-learn.org/dev/modules/ensemble.html#adaboost)) for provided by scikit-learn.
