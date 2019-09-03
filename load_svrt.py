@@ -12,8 +12,8 @@ def load_svrt_parsing(problem_no):
     dirs = './data/parsed_classic'
     prbm = 'problem_{:0>2d}'.format(problem_no)
     print('loading ',prbm)
-    for img_index in range(100):
-        if img_index < 50:
+    for img_index in range(10000):
+        if img_index % 1000 < 500:
             ans = 1
         else:
             ans = 0
