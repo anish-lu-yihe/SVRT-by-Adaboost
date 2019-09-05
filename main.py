@@ -11,7 +11,7 @@ from load_svrt import load_svrt_parsing
 for n in [10,100,1000]:
     print("------- SVRT by Adaboost -------")
     accuracies = []
-    for i in range(1, 3):
+    for i in range(23):
         problem = i + 1
         X, y = load_svrt_parsing(problem)
         print(X[0])
