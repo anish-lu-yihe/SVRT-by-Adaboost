@@ -8,7 +8,7 @@ import csv
 from load_svrt import load_svrt_parsing
 
 
-for n in [10,100,1000]:
+for n in [10,100,1000,10000]:
     print("------- SVRT by Adaboost -------")
     accuracies = []
     for i in range(23):
