@@ -22,23 +22,40 @@ def load_svrt_parsing(problem_no):
         with open(filename,'r') as f:
             parsing = csv.reader(f)
             prs = []
+            bdr_app, ctn_app = 0, 0
             for row in parsing:
                 sbc, row0_ = row[0].split('(')
                 data = []
                 for i in row:
                     data.append(float(i.strip('Shape()borders()contains()')))
+
                 if sbc == 'Shape':
                     nosh = len(data) // 4
                     for shape in range(nosh):
-                        prs.append([[0]*nosh,[0]*nosh,data[shape:shape+4]])
+                        prs.append(data[shape:shape+4])
+                    bdr = [[0] * nosh for _ in range(nosh)]
+                    ctn = bdr
                 elif sbc == 'borders':
+                    bdr_app = 1
                     bdrA, bdrB = int(data[0]), int(data[1])
-                    prs[bdrA][0][bdrB], prs[bdrB][0][bdrA] = 100, 100
+                    bdr[bdrA][bdrB], bdr[bdrB][bdrA] = 100, 100
                 elif sbc == 'contains':
+                    ctn_app = 1
                     ctnA, ctnB = int(data[0]), int(data[1])
-                    prs[ctnA][1][ctnB], prs[ctnB][1][ctnA] = 100, -100
+                    ctn[ctnA][ctnB], ctn[ctnB][ctnA] = 100, -100
 
-        par = [x for z in prs for y in z for x in y]
+
+            if bdr_app == 1:
+                for i in range(nosh):
+                    for j in range(nosh):
+                        prs[i].append(bdr[i][j])
+
+            if ctn_app == 1:
+                for i in range(nosh):
+                    for j in range(nosh):
+                        prs[i].append(ctn[i][j])
+
+        par = [x for y in prs for x in y]
 
 
 
