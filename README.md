@@ -15,16 +15,13 @@ Adaboost (short for Adaptive Boosting) is an ensemble method developed by Y. Fre
 ### Branches
 - **master**:
 Following the literature, Adaboost is used here as a baseline. For fair comparison with program synthesis, the inputs are parsings and the outputs are class indices. A parsing from pySVRT/parsed_classic is encoded in the following form:
-> Shape(x-coordinate, y-coordinate, shape identity, scale), Shape(x-coordinate, y-coordinate, shape identity, scale)[, ...]
-
-> [borders(shape index, shape index)]
-
-> [...]
-
-> [contains(shape index, shape index)]
-
-> [...]
-
+---
+Shape(x-coordinate, y-coordinate, shape identity, scale), Shape(x-coordinate, y-coordinate, shape identity, scale)[, ...]
+[borders(shape index, shape index)]
+[...]
+[contains(shape index, shape index)]
+[...]
+---
 where those within the brackets [] can be omitted dependent on the image. To encode the bordering and containing data, a bordering and a containing matrices are formed: if borders(shape a, shape b), then the (a,b) and (b,a) entries of the bordering matrix are set to be 100; if contains(shape a, shape b), then the (a,b) entry of the containing matrix equals 100 while the (b,a) entry equals -100. Each row of the two matrices is then inserted to the individual shape information encoded by the 4 parameters. An image parsing vector is obtained by simply flattening these individual shape parameters into a real vector, whose dimension is always (4 + #shape * 2) * #shape.
 
 - [parsing](https://github.com/anish-lu-yihe/SVRT-by-Adaboost/tree/parsing):
