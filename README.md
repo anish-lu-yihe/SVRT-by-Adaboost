@@ -35,4 +35,33 @@ Under development. I attempt to vary the parsing dimension to avoid to redundant
 2. Run main.py.
 
 ## Results by parsing
-I ran Adaboost on this varying-dimensional parsings with 10, 100, 1000 and 10000 stumps on 9k examples, and tested them with 1k unseen examples. The code actually failed to work for 9 out of 23 problems due to the varying dimension, which caused the input dimension into Adaboost not consistent. For other problems, the results are identical to what obtained by non-varying-dimensional parsings.
+I ran Adaboost on this varying-dimensional parsings with 10, 100, 1000 and 10000 stumps on 9k examples, and tested them with 1k unseen examples.
+
+|            | \#train  | 9000     |          |          |
+|------------|----------|----------|----------|----------|
+| \#\\stumps | 10       | 100      | 1000     | 10000    |
+| 1          | 50\.40%  | 48\.20%  | 48\.30%  | 50\.20%  |
+| 2          | 62\.40%  | 63\.40%  | 62\.80%  | 59\.60%  |
+| 3          | 52\.80%  | 53\.00%  | 51\.40%  | 52\.40%  |
+| 4          |          |          |          |          |
+| 5          | 65\.90%  | 66\.20%  | 65\.50%  | 64\.00%  |
+| 6          | 65\.50%  | 67\.20%  | 64\.90%  | 63\.60%  |
+| 7          |          |          |          |          |
+| 8          |          |          |          |          |
+| 9          | 56\.60%  | 56\.00%  | 57\.10%  | 56\.20%  |
+| 10         | 60\.40%  | 63\.10%  | 61\.50%  | 60\.90%  |
+| 11         |          |          |          |          |
+| 12         |          |          |          |          |
+| 13         |          |          |          |          |
+| 14         | 50\.50%  | 51\.10%  | 52\.20%  | 50\.80%  |
+| 15         | 100\.00% | 100\.00% | 100\.00% | 100\.00% |
+| 16         | 100\.00% | 100\.00% | 100\.00% | 100\.00% |
+| 17         | 58\.50%  | 58\.00%  | 58\.20%  | 56\.10%  |
+| 18         | 60\.00%  | 64\.10%  | 63\.60%  | 61\.90%  |
+| 19         |          |          |          |          |
+| 20         | 100\.00% | 100\.00% | 100\.00% | 100\.00% |
+| 21         |          |          |          |          |
+| 22         | 49\.10%  | 50\.50%  | 48\.00%  | 48\.10%  |
+| 23         |          |          |          |          |
+
+The code actually failed to work for 9 out of 23 problems due to the varying dimension, which caused the input dimension into Adaboost not consistent. For other problems, the results are identical to what obtained by non-varying-dimensional parsings.
