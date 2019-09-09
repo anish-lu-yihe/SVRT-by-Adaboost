@@ -37,9 +37,8 @@ Under development. I attempt to vary the parsing dimension to avoid to redundant
 ## Results by parsing
 I ran Adaboost on this varying-dimensional parsings with 10, 100, 1000 and 10000 stumps on 9k examples, and tested them with 1k unseen examples.
 
-|            | \#train  | 9000     |          |          |
-|------------|----------|----------|----------|----------|
 | \#\\stumps | 10       | 100      | 1000     | 10000    |
+|------------|----------|----------|----------|----------|
 | 1          | 50\.40%  | 48\.20%  | 48\.30%  | 50\.20%  |
 | 2          | 62\.40%  | 63\.40%  | 62\.80%  | 59\.60%  |
 | 3          | 52\.80%  | 53\.00%  | 51\.40%  | 52\.40%  |
