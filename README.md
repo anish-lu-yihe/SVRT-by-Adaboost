@@ -64,4 +64,4 @@ I ran Adaboost on this varying-dimensional parsings with 10, 100, 1000 and 10000
 | 22         | 49\.10%  | 50\.50%  | 48\.00%  | 48\.10%  |
 | 23         |          |          |          |          |
 
-The code actually failed to work for 9 out of 23 problems due to the varying dimension, which caused the input dimension into Adaboost not consistent. For other problems, the results are identical to what obtained by non-varying-dimensional parsings.
+The code actually failed to work for 9 out of 23 problems (blank entires in the above table), due to the varying dimension, which caused the input dimension into Adaboost not consistent. For other problems, the results are identical to what obtained by non-varying-dimensional parsings.
