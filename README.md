@@ -31,7 +31,7 @@ I attempt to vary the parsing dimension to avoid redundant zeros in inputs. Howe
 1. Generate SVRT problems (not included in this project).
 2. Run main.py.
 
-## Results by parsing
+## Results
 I ran Adaboost with 10, 100 and 1000 stumps on 1k, 2k and 9k traning examples, and tested the models with 1k unseen examples.
 
 | \#train    | 1000     |          |          |          | 2000     |          |          | 9000     |          |          |          |
