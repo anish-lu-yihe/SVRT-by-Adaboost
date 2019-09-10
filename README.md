@@ -28,21 +28,21 @@ where those within the brackets [] can be omitted dependent on the image. To enc
 I attempt to vary the parsing dimension to avoid redundant zeros in inputs. However, Adaboost cannot take inputs (parsings of different images in one problem) of varying input dimesions, which caused the code to fail in problem \#4, \#7, \#8, \#11, \#12, \#13, \#19, \#21 and \#23. For other problems, the results are identical to what obtained by the code in master branch (with redundant zeros for containing and bordering information in inputs). Therefore, the code in this parsing branch is totally useless.
 
 - **small-sample**
-Here I want to see if Adaboost can learn from relatively few examples.
+Here I want to see if Adaboost can learn from relatively few examples, and compare Sasquatch parsings and our parsings.
 
 ### Usage
 1. Generate SVRT problems (not included in this project).
 2. Run main.py.
 
 ## Results by parsing
-I ran Adaboost with 10, 100 and 1000 stumps on 1k, 2k and 9k training examples, and tested the models with 1k unseen examples.
+I ran Adaboost with 10, 100 and 1000 stumps on 10, 40 and 500 pairs of training examples with Sasquatch parsings and our parsings.
 
-|           | Sasquatch| train 10 | test 40  |           | New pars | train 10 | test 40  |          | Sasquatch| train 40 | test 10  |          | New pars | train 10 | test 40  |          | New pars | train 1000 | test 1000  |          |
+|           | Sasquatch| train 10 | test 40  |           | New pars | train 10 | test 40  |          | Sasquatch| train 40 | test 10  |          | New pars | train 10 | test 40  |          | New pars | train 500 | test 500  |          |
 |-----------|----------|----------|----------|-----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|
 | stumps    | 10       | 100      | 1000     | 10000     | 10       | 100      | 1000     | 10000    | 10       | 100      | 1000     | 10000    | 10       | 100      | 1000     | 10000    | 10       | 100      | 1000     | 10000    |
 | 1         | 58\.75%  | 60\.00%  | 58\.75%  | 57\.50%   | 43\.75%  | 48\.75%  | 45\.00%  | 43\.75%  | 45\.00%  | 20\.00%  | 25\.00%  | 35\.00%  | 70\.00%  | 50\.00%  | 45\.00%  | 40\.00%  | 48\.80%  | 50\.10%  | 50\.30%  | 51\.20%  |
-| 2         | 52\.50%  | 46\.25%  | 51\.25%  | 51\.25%   | 50\.00%  | 53\.75%  | 53\.75%  | 57\.50%  | 55\.00%  | 50\.00%  | 60\.00%  | 60\.00%  | 70\.00%  | 60\.00%  | 45\.00%  | 50\.00%  | 64\.30%  | 66\.20%  | 62\.40%  | 59\.90%  |
-| 3         | 85\.00%  | 70\.00%  | 68\.75%  | 68\.75%   | 51\.25%  | 50\.00%  | 51\.25%  | 50\.00%  | 85\.00%  | 75\.00%  | 85\.00%  | 80\.00%  | 60\.00%  | 55\.00%  | 55\.00%  | 55\.00%  | 50\.70%  | 50\.10%  | 51\.20%  | 51\.80%  |
+| 2\*         | 52\.50%  | 46\.25%  | 51\.25%  | 51\.25%   | 50\.00%  | 53\.75%  | 53\.75%  | 57\.50%  | 55\.00%  | 50\.00%  | 60\.00%  | 60\.00%  | 70\.00%  | 60\.00%  | 45\.00%  | 50\.00%  | 64\.30%  | 66\.20%  | 62\.40%  | 59\.90%  |
+| 3\*         | 85\.00%  | 70\.00%  | 68\.75%  | 68\.75%   | 51\.25%  | 50\.00%  | 51\.25%  | 50\.00%  | 85\.00%  | 75\.00%  | 85\.00%  | 80\.00%  | 60\.00%  | 55\.00%  | 55\.00%  | 55\.00%  | 50\.70%  | 50\.10%  | 51\.20%  | 51\.80%  |
 | 4         | 100\.00% | 100\.00% | 100\.00% | 100\.00%  | 100\.00% | 100\.00% | 100\.00% | 100\.00% | 100\.00% | 100\.00% | 100\.00% | 100\.00% | 100\.00% | 100\.00% | 100\.00% | 100\.00% | 100\.00% | 100\.00% | 100\.00% | 100\.00% |
 | 5         | 55\.00%  | 53\.75%  | 51\.25%  | 51\.25%   | 62\.50%  | 58\.75%  | 58\.75%  | 58\.75%  | 45\.00%  | 45\.00%  | 55\.00%  | 55\.00%  | 80\.00%  | 80\.00%  | 70\.00%  | 70\.00%  | 65\.00%  | 61\.40%  | 60\.30%  | 57\.10%  |
 | 6         | 57\.50%  | 63\.75%  | 65\.00%  | 65\.00%   | 52\.50%  | 53\.75%  | 57\.50%  | 57\.50%  | 65\.00%  | 50\.00%  | 50\.00%  | 50\.00%  | 60\.00%  | 55\.00%  | 55\.00%  | 40\.00%  | 63\.90%  | 62\.30%  | 61\.70%  | 60\.40%  |
@@ -64,5 +64,8 @@ I ran Adaboost with 10, 100 and 1000 stumps on 1k, 2k and 9k training examples, 
 | 22        | 48\.75%  | 47\.50%  | 46\.25%  | 41\.25%   | 52\.50%  | 48\.75%  | 50\.00%  | 53\.75%  | 70\.00%  | 70\.00%  | 50\.00%  | 55\.00%  | 45\.00%  | 40\.00%  | 40\.00%  | 35\.00%  | 49\.70%  | 50\.80%  | 52\.50%  | 51\.30%  |
 | 23        | 50\.00%  | 61\.25%  | 57\.50%  | 58\.75%   | 56\.25%  | 53\.75%  | 48\.75%  | 50\.00%  | 85\.00%  | 75\.00%  | 75\.00%  | 75\.00%  | 60\.00%  | 50\.00%  | 50\.00%  | 55\.00%  | 67\.40%  | 64\.20%  | 58\.20%  | 54\.70%  |
 
+> **Note:** Sasquatch parsings from problem 2 and 3 cannot be dealt with Adaboost directly because in some rare cases the parser detects more shapes than expected (normal). I modified the rare examples by hand, and then the results are obtained as in the table.
 
-It is very clear that Adaboost can perform classification pretty well in problem 4, 8, 11, 15, 16 and 20, but poorly in other problems.
+It is clear that no more than 100 training example allow Adaboost to yield on problems it can solve, while 9k training examples won't help it learn better in other problems.
+
+Our parsings are better than Sasquatch parsings as parsings for problem 2 and 3 would never be incorrect. Moreover, a significant performance boost can be seen for problem 20.
