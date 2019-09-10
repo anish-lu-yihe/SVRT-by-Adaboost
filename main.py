@@ -18,13 +18,16 @@ for n_e in [10,100,1000,10000]:
         X_test, y_test = p[40:]+n[40:], py[40:]+ny[40:]
         clf = AdaBoostClassifier(n_estimators=n_e)
         print("Now fitting with Adaboost ...")
-        model = clf.fit(X_train, y_train)
-        y_pred = model.predict(X_test)
-        accuracy = metrics.accuracy_score(y_test, y_pred)
+        try:
+            model = clf.fit(X_train, y_train)
+            y_pred = model.predict(X_test)
+            accuracy = metrics.accuracy_score(y_test, y_pred)
+        except Exception as e:
+            accuracy = -1
         accuracies.append(accuracy)
         print("Test accuracy:", accuracy)
         print("-------")
 
-    with open('model/50accuracy_classic.csv'.format(n), 'a') as f:
+    with open('model/50accuracy_sas.csv'.format(n), 'a') as f:
         accuracies_writer = csv.writer(f)
         accuracies_writer.writerow(accuracies)
