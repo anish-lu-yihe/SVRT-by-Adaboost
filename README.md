@@ -34,7 +34,7 @@ Here I want to see if Adaboost can learn from relatively few examples, and compa
 1. Generate SVRT problems (not included in this project).
 2. Run main.py.
 
-## Results by parsing
+## Results by small-sample
 I ran Adaboost with 10, 100 and 1000 stumps on 10, 40 and 500 pairs of training examples with Sasquatch parsings and our parsings.
 
 |           | Sasquatch| train 10 | test 40  |           | New pars | train 10 | test 40  |          | Sasquatch| train 40 | test 10  |          | New pars | train 10 | test 40  |          | New pars | train 500 | test 500  |          |
