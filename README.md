@@ -27,7 +27,7 @@ where those within the brackets [] can be omitted dependent on the image. To enc
 - [parsing](https://github.com/anish-lu-yihe/SVRT-by-Adaboost/tree/parsing):
 I attempt to vary the parsing dimension to avoid redundant zeros in inputs. However, Adaboost cannot take inputs (parsings of different images in one problem) of varying input dimesions, which caused the code to fail in problem \#4, \#7, \#8, \#11, \#12, \#13, \#19, \#21 and \#23. For other problems, the results are identical to what obtained by the code in master branch (with redundant zeros for containing and bordering information in inputs). Therefore, the code in this parsing branch is totally useless.
 
-- **small-sample**
+- **small-sample**:
 Here I want to see if Adaboost can learn from relatively few examples, and compare Sasquatch parsings and our parsings.
 
 ### Usage
@@ -64,7 +64,7 @@ I ran Adaboost with 10, 100 and 1000 stumps on 10, 40 and 500 pairs of training 
 | 22        | 48\.75%  | 47\.50%  | 46\.25%  | 41\.25%   | 52\.50%  | 48\.75%  | 50\.00%  | 53\.75%  | 70\.00%  | 70\.00%  | 50\.00%  | 55\.00%  | 45\.00%  | 40\.00%  | 40\.00%  | 35\.00%  | 49\.70%  | 50\.80%  | 52\.50%  | 51\.30%  |
 | 23        | 50\.00%  | 61\.25%  | 57\.50%  | 58\.75%   | 56\.25%  | 53\.75%  | 48\.75%  | 50\.00%  | 85\.00%  | 75\.00%  | 75\.00%  | 75\.00%  | 60\.00%  | 50\.00%  | 50\.00%  | 55\.00%  | 67\.40%  | 64\.20%  | 58\.20%  | 54\.70%  |
 
-> **Note:** Sasquatch parsings from problem 2 and 3 cannot be dealt with Adaboost directly because in some rare cases the parser detects more shapes than expected (normal). I modified the rare examples by hand, and then the results are obtained as in the table.
+> **\*Note:** Sasquatch parsings from problem 2 and 3 cannot be dealt with Adaboost directly because in some rare cases the parser detects more shapes than expected (normal). I modified the rare examples by hand, and then the results are obtained as in the table.
 
 It is clear that no more than 100 training example allow Adaboost to yield on problems it can solve, while 9k training examples won't help it learn better in other problems.
 
