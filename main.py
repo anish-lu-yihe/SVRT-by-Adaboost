@@ -8,15 +8,15 @@ import csv
 from load_svrt import load_svrt_parsing
 
 
-for n in [10,100,1000,10000]:
+for n_e in [10,100,1000,10000]:
     print("------- SVRT by Adaboost -------")
     accuracies = []
     for i in range(23):
         problem = i + 1
-        X, y = load_svrt_parsing(problem)
-        X_train, y_train = X[:9000], y[:9000]
-        X_test, y_test = X[9000:], y[9000:]
-        clf = AdaBoostClassifier(n_estimators=n)
+        p, py, n, ny = load_svrt_parsing(problem)
+        X_train, y_train = p[:40]+n[:40], py[:40]+ny[:40]
+        X_test, y_test = p[40:]+n[40:], py[40:]+ny[40:]
+        clf = AdaBoostClassifier(n_estimators=n_e)
         print("Now fitting with Adaboost ...")
         model = clf.fit(X_train, y_train)
         y_pred = model.predict(X_test)
@@ -25,6 +25,6 @@ for n in [10,100,1000,10000]:
         print("Test accuracy:", accuracy)
         print("-------")
 
-    with open('model/accuracy_n={}.csv'.format(n), 'a') as f:
+    with open('model/50accuracy_classic.csv'.format(n), 'a') as f:
         accuracies_writer = csv.writer(f)
         accuracies_writer.writerow(accuracies)

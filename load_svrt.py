@@ -6,14 +6,13 @@ import csv
 
 
 def load_svrt_parsing(problem_no):
-    X = []
-    y = []
+    p, py, n, ny = [], [], [], []
 
-    dirs = './data/parsed_classic'
+    dirs = './data/50parsed_classic'
     prbm = 'problem_{:0>2d}'.format(problem_no)
     print('loading ',prbm)
-    for img_index in range(10000):
-        if img_index % 1000 < 500:
+    for img_index in range(100):
+        if img_index < 50:
             ans = 1
         else:
             ans = 0
@@ -40,13 +39,14 @@ def load_svrt_parsing(problem_no):
 
         par = [x for z in prs for y in z for x in y]
 
+        if ans == 1:
+            p.append(par)
+            py.append(ans)
+        else:
+            n.append(par)
+            ny.append(ans)
 
-
-
-        X.append(par)
-        y.append(ans)
-
-    return (X,y)
+    return (p,py,n,ny)
 
 def load_svrt_image(problem_no): #this is currently a copy from SVRT-by-RN; the entire load_svrt should be an independent API
     qst = np.zeros(11)
