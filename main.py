@@ -14,8 +14,8 @@ for n_e in [10,100,1000,10000]:
     for i in range(23):
         problem = i + 1
         p, py, n, ny = load_svrt_parsing(problem)
-        X_train, y_train = p[:40]+n[:40], py[:40]+ny[:40]
-        X_test, y_test = p[40:]+n[40:], py[40:]+ny[40:]
+        X_train, y_train = p[:10]+n[:10], py[:10]+ny[:10]
+        X_test, y_test = p[10:]+n[10:], py[10:]+ny[10:]
         clf = AdaBoostClassifier(n_estimators=n_e)
         print("Now fitting with Adaboost ...")
         try:
@@ -28,6 +28,6 @@ for n_e in [10,100,1000,10000]:
         print("Test accuracy:", accuracy)
         print("-------")
 
-    with open('model/50accuracy_sas.csv'.format(n), 'a') as f:
+    with open('model/10accuracy_classic.csv'.format(n), 'a') as f:
         accuracies_writer = csv.writer(f)
         accuracies_writer.writerow(accuracies)

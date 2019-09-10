@@ -8,7 +8,7 @@ import csv
 def load_svrt_parsing(problem_no):
     p, py, n, ny = [], [], [], []
 
-    dirs = './data/50sasquatch_parsed'
+    dirs = './data/50parsed_classic'
     prbm = 'problem_{:0>2d}'.format(problem_no)
     print('loading ',prbm)
     for img_index in range(100):
@@ -38,6 +38,7 @@ def load_svrt_parsing(problem_no):
                     prs[ctnA][1][ctnB], prs[ctnB][1][ctnA] = 100, -100
 
         par = [x for z in prs for y in z for x in y]
+        #print(img_index,len(par))
 
         if ans == 1:
             p.append(par)
